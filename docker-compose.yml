@@ -1,0 +1,126 @@
+version: '2.2'
+services:
+  frontend:
+    build: .
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 100m
+    mem_reservation: 50m
+    container_name: cicada-frontend
+  user1:
+    build:
+      context: .
+      args:
+        PASSWORD: password1
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user1
+  user2:
+    build:
+      context: .
+      args:
+        PASSWORD: password2
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user2
+  user3:
+    build:
+      context: .
+      args:
+        PASSWORD: password3
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user3
+  user4:
+    build:
+      context: .
+      args:
+        PASSWORD: password4
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user4
+  user5:
+    build:
+      context: .
+      args:
+        PASSWORD: password5
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user5
+  user6:
+    build:
+      context: .
+      args:
+        PASSWORD: password6
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user6
+  user7:
+    build:
+      context: .
+      args:
+        PASSWORD: password7
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user7
+  user8:
+    build:
+      context: .
+      args:
+        PASSWORD: password8
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user8
+  proxy:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    image: iecse/cicada-proxy
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    container_name: cicada-proxy
+    mem_limit: 100m
+    mem_reservation: 50m
+    depends_on:
+      - user1
+      - user2
+      - user3
+      - user4
+      - user5
+      - user6
+      - user7
+      - user8
+      - frontend
+    ports:
+      - 6001:80
+
+networks:
+  cicada-network:
+    driver: bridge
+    name: cicada-network
