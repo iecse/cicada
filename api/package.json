@@ -1,0 +1,17 @@
+{
+  "name": "cicadaround2",
+  "version": "1.0.0",
+  "description": "Cicada Round 2",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Aakash",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.16.0"
+  }
+}
