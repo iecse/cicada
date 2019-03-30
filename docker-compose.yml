@@ -8,11 +8,28 @@ services:
     mem_limit: 100m
     mem_reservation: 50m
     container_name: cicada-frontend
+  backend: 
+    build: ./api
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    container_name: cicada-backend
+  db:
+    build: ./db
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    container_name: cicada-db
+    volumes:
+      - ./db-data:/var/lib/mysql
+    env_file:
+      - ./db/.env
   user1:
     build:
       context: .
       args:
         PASSWORD: password1
+        TOKEN: utoken1
     restart: unless-stopped
     networks:
       - cicada-network
@@ -24,78 +41,85 @@ services:
       context: .
       args:
         PASSWORD: password2
+        TOKEN: utoken2
     restart: unless-stopped
     networks:
       - cicada-network
     mem_limit: 300m
     mem_reservation: 100m
     container_name: cicada-user2
-  user3:
-    build:
-      context: .
-      args:
-        PASSWORD: password3
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user3
-  user4:
-    build:
-      context: .
-      args:
-        PASSWORD: password4
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user4
-  user5:
-    build:
-      context: .
-      args:
-        PASSWORD: password5
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user5
-  user6:
-    build:
-      context: .
-      args:
-        PASSWORD: password6
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user6
-  user7:
-    build:
-      context: .
-      args:
-        PASSWORD: password7
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user7
-  user8:
-    build:
-      context: .
-      args:
-        PASSWORD: password8
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user8
+  # user3:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password3
+  #       TOKEN: token3
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user3
+  # user4:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password4
+  #       TOKEN: token4
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user4
+  # user5:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password5
+  #       TOKEN: token5
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user5
+  # user6:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password6
+  #       TOKEN: token6
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user6
+  # user7:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password7
+  #       TOKEN: token7
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user7
+  # user8:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password8
+  #       TOKEN: token8
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user8
   proxy:
     build:
       context: .
@@ -110,12 +134,12 @@ services:
     depends_on:
       - user1
       - user2
-      - user3
-      - user4
-      - user5
-      - user6
-      - user7
-      - user8
+      # - user3
+      # - user4
+      # - user5
+      # - user6
+      # - user7
+      # - user8
       - frontend
     ports:
       - 6001:80

@@ -8,13 +8,13 @@ import json
 
 interact_type = sys.argv[1]
 
-#utoken = os.environ.get('utoken')
-utoken = "utoken1"
+utoken = os.environ.get('TOKEN')
+# utoken = "utoken1"
 
 if interact_type == "ranks":
     try:
 
-        url = 'http://localhost:5000/api/leaderboard'
+        url = 'http://backend/api/leaderboard'
 
         response = requests.get(url)
 
@@ -35,6 +35,8 @@ elif interact_type == "answer":
         question = sys.argv[2]
 
         flag = sys.argv[3]
+
+        flag = flag.strip()
 
         headers = {
             'Content-Type': 'application/json',

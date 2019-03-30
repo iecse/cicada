@@ -4,6 +4,7 @@
   "description": "Cicada Round 2",
   "main": "app.js",
   "scripts": {
+    "start": "node app",
     "test": "test"
   },
   "author": "Aakash",
