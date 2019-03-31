@@ -8,12 +8,16 @@ services:
     mem_limit: 100m
     mem_reservation: 50m
     container_name: cicada-frontend
+    image: cicada-frontend
   backend: 
     build: ./api
     restart: unless-stopped
     networks:
       - cicada-network
     container_name: cicada-backend
+    depends_on:
+      - db
+    image: cicada-backend
   db:
     build: ./db
     restart: unless-stopped
@@ -21,9 +25,11 @@ services:
       - cicada-network
     container_name: cicada-db
     volumes:
-      - ./db-data:/var/lib/mysql
-    env_file:
-      - ./db/.env
+      - database:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=cicadaround2
+    image: cicada-db
   user1:
     build:
       context: .
@@ -36,18 +42,18 @@ services:
     mem_limit: 300m
     mem_reservation: 100m
     container_name: cicada-user1
-  user2:
-    build:
-      context: .
-      args:
-        PASSWORD: password2
-        TOKEN: utoken2
-    restart: unless-stopped
-    networks:
-      - cicada-network
-    mem_limit: 300m
-    mem_reservation: 100m
-    container_name: cicada-user2
+  # user2:
+  #   build:
+  #     context: .
+  #     args:
+  #       PASSWORD: password2
+  #       TOKEN: utoken2
+  #   restart: unless-stopped
+  #   networks:
+  #     - cicada-network
+  #   mem_limit: 300m
+  #   mem_reservation: 100m
+  #   container_name: cicada-user2
   # user3:
   #   build:
   #     context: .
@@ -133,7 +139,7 @@ services:
     mem_reservation: 50m
     depends_on:
       - user1
-      - user2
+      # - user2
       # - user3
       # - user4
       # - user5
@@ -148,3 +154,6 @@ networks:
   cicada-network:
     driver: bridge
     name: cicada-network
+
+volumes:
+  database:

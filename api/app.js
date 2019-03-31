@@ -208,4 +208,4 @@ app.get('/leaderboard',function(req,res){
     }
 });
 
-http.listen(5000);
+http.listen(80);
