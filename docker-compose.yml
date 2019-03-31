@@ -35,97 +35,145 @@ services:
       context: .
       args:
         PASSWORD: password1
-        TOKEN: utoken1
+        TOKEN: 7tmVZH4DPYwvn9kkyZOq
     restart: unless-stopped
     networks:
       - cicada-network
     mem_limit: 300m
     mem_reservation: 100m
     container_name: cicada-user1
-  # user2:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password2
-  #       TOKEN: utoken2
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user2
-  # user3:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password3
-  #       TOKEN: token3
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user3
-  # user4:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password4
-  #       TOKEN: token4
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user4
-  # user5:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password5
-  #       TOKEN: token5
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user5
-  # user6:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password6
-  #       TOKEN: token6
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user6
-  # user7:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password7
-  #       TOKEN: token7
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user7
-  # user8:
-  #   build:
-  #     context: .
-  #     args:
-  #       PASSWORD: password8
-  #       TOKEN: token8
-  #   restart: unless-stopped
-  #   networks:
-  #     - cicada-network
-  #   mem_limit: 300m
-  #   mem_reservation: 100m
-  #   container_name: cicada-user8
+  user2:
+    build:
+      context: .
+      args:
+        PASSWORD: password2
+        TOKEN: Z97YmgrYV9sAip9yMQ5u
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user2
+  user3:
+    build:
+      context: .
+      args:
+        PASSWORD: password3
+        TOKEN: 8KZ6DdhESi1ET7VTMKoX
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user3
+  user4:
+    build:
+      context: .
+      args:
+        PASSWORD: password4
+        TOKEN: 5WXjtSnTarKd3VwtQ4Cq
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user4
+  user5:
+    build:
+      context: .
+      args:
+        PASSWORD: password5
+        TOKEN: BHENb4RNgbPWXzmIM2t8
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user5
+  user6:
+    build:
+      context: .
+      args:
+        PASSWORD: password6
+        TOKEN: NTgJB00SVqEGqB8ggf2j
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user6
+  user7:
+    build:
+      context: .
+      args:
+        PASSWORD: password7
+        TOKEN: hwLH8ADfWo5yUEGqX8zw
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user7
+  user8:
+    build:
+      context: .
+      args:
+        PASSWORD: password8
+        TOKEN: 7zxm5dK7ny2nDW47RGIb
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user8
+  user9:
+    build:
+      context: .
+      args:
+        PASSWORD: password9
+        TOKEN: AkGc9eAuvd28a6LCSG4F
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user9
+  user10:
+    build:
+      context: .
+      args:
+        PASSWORD: password10
+        TOKEN: qjE4kizpZb3gGKR7YtTr
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user10
+  user11:
+    build:
+      context: .
+      args:
+        PASSWORD: password11
+        TOKEN: 9L5DHWmIYnaidtSWqlFt
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user11
+  user12:
+    build:
+      context: .
+      args:
+        PASSWORD: password12
+        TOKEN: KLuatBtNBY47j1KtVgQQ
+    restart: unless-stopped
+    networks:
+      - cicada-network
+    mem_limit: 300m
+    mem_reservation: 100m
+    container_name: cicada-user12
   proxy:
     build:
       context: .
@@ -139,13 +187,17 @@ services:
     mem_reservation: 50m
     depends_on:
       - user1
-      # - user2
-      # - user3
-      # - user4
-      # - user5
-      # - user6
-      # - user7
-      # - user8
+      - user2
+      - user3
+      - user4
+      - user5
+      - user6
+      - user7
+      - user8
+      - user9
+      - user10
+      - user11
+      - user12
       - frontend
     ports:
       - 6001:80
